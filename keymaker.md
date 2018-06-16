@@ -5,13 +5,15 @@
 **You can definitely trust this keymaker.**
 
 The Keymaker is the object that is used to authenticate with the third party
-service and generate the OAuth keys the application needs to do things on behalf
-of a user.
+service and generate the bot keys the application needs to do things on behalf
+of a user account.
 
-In theory, not all Keymakers must do OAuth, but in practice,
-_all_ Keymakers do OAuth.
+This document provides a high-level overview of the Keymaker.
 
 ## The Three-Legged OAuth Process
+
+In theory, not all Keymakers must do OAuth, but in practice,
+**all Keymakers do OAuth**.
 
 The Keymaker carries out a one-time authorization step that needs to 
 be done once for each Sheep = bot = account.
@@ -22,7 +24,8 @@ each item and performs the three-legged OAuth process.
 
 Here's a summary of the process:
 
-* The three legs are: the user (the bot account), the third party service (Github/Google/Twitter/other), and the consumer (your rainbowmindmachine app - specifically, the Keymaker)
+* The three legs are: the user (the bot account), the third party service (Github/Google/Twitter/other), and the consumer 
+    (your mind machine app - specifically, the Keymaker component)
 * The Keymaker will initiate the process by requesting an OAuth URL from the third party
     (this is how an app asks a user for permission to access their account)
 * Third party will return an OAuth URL to the Keymaker, which will pass it to the user
