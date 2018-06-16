@@ -2,7 +2,7 @@
 
 ![the keymaker](img/keymaker.jpg)
 
-**You can definitely trust this keymaker. [credit](credits.md)**
+**You can definitely trust this keymaker.**
 
 The Keymaker is the object that is used to authenticate with the third party
 service and generate the OAuth keys the application needs to do things on behalf
@@ -94,5 +94,4 @@ OAuth Keymaker base class, see the
 To extend the Keymaker class, you should override
 the `make_keys()` method to create keys in whatever
 manner you wish.
-
 
