@@ -15,10 +15,14 @@ This document provides a high-level overview of the Keymaker.
 
 If you don't care about all of this business and just want to know
 how to use the keymaker, see the [boring mind machine
-documentation](https://pages.charlesreid1.com/boring-mind-machine),
-specifically coverage of the [BoringOAuthKeymaker](../boring_keymaker.md) class
-and the platform-specific [Github Keymaker](../keymaker_github.md),
-[Google Keymaker](../keymaker_google.md), and [Twitter Keymaker](../keymaker_twitter.md)
+documentation](https://pages.charlesreid1.com/boring-mind-machine).
+
+Specifically, see coverage of the 
+[BoringOAuthKeymaker](https://pages.charlesreid1.com/boring-mind-machine/bmm_keymaker/)
+class, along with the service-specific
+[Github Keymaker](https://pages.charlesreid1.com/boring-mind-machine/bmm_keymaker_github/),
+[Google Keymaker](https://pages.charlesreid1.com/boring-mind-machine/bmm_keymaker_google/), and 
+[Twitter Keymaker](https://pages.charlesreid1.com/boring-mind-machine/bmm_keymaker_twitter/)
 classes.
 
 
@@ -78,7 +82,7 @@ and calls them by different names. For example:
 * API token/API secret token
 * etc...
 
-The [boring mind machine](#)
+The [boring mind machine](https://pages.charlesreid1.com/boring-mind-machine)
 library provides a base OAuth Keymaker class
 called BoringOAuthKeymaker. This class implements
 the OAuth process in a generic way. The details
