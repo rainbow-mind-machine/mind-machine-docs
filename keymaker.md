@@ -10,7 +10,19 @@ of a user account.
 
 This document provides a high-level overview of the Keymaker.
 
-## The Three-Legged OAuth Process
+
+## Using the Keymaker
+
+If you don't care about all of this business and just want to know
+how to use the keymaker, see the [boring mind machine
+documentation](https://pages.charlesreid1.com/boring-mind-machine),
+specifically coverage of the [BoringOAuthKeymaker](../boring_keymaker.md) class
+and the platform-specific [Github Keymaker](../keymaker_github.md),
+[Google Keymaker](../keymaker_google.md), and [Twitter Keymaker](../keymaker_twitter.md)
+classes.
+
+
+## Background: The Three-Legged OAuth Process
 
 In theory, not all Keymakers must do OAuth, but in practice,
 **all Keymakers do OAuth**.
@@ -88,13 +100,4 @@ The bot key contains both the API keys for the application,
 and the OAuth keys for the bot account.
 
 
-## Using the Keymaker
-
-For details about how to create keys using the
-OAuth Keymaker base class, see the 
-[boring mind machine documentation](#).
-
-To extend the Keymaker class, you should override
-the `make_keys()` method to create keys in whatever
-manner you wish.
 
