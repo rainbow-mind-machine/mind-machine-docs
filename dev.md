@@ -50,6 +50,7 @@ See branching workflow above. Checklist:
 * Test examples
 * Test create Docker container
 * Test documentation (but documentation can be/should be separate)
+* Update submodules
 * Mainly code
 
 When ready:
