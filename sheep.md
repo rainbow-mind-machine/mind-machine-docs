@@ -2,7 +2,7 @@
 
 ![the sheep](img/sheep.jpg)
 
-**The rainbow mind machine sheep.**
+**The mind machine sheep.**
 
 The Sheep is the component of the bot flock that actually
 performs the actions using the bot accounts.

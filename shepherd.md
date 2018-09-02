@@ -15,7 +15,7 @@
 
 ![the shepherd](img/shepherd.jpg)
 
-**The rainbow mind machine shepherd.**
+**The mind machine shepherd.**
 
 ## what is the Shepherd?
 

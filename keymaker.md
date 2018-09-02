@@ -2,7 +2,7 @@
 
 ![the keymaker](img/keymaker.jpg)
 
-**You can definitely trust this keymaker.**
+**the mind machine keymaker. trust it with your keys.**
 
 The Keymaker is the object that is used to authenticate with the third party
 service and generate the bot keys the application needs to do things on behalf
