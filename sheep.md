@@ -15,7 +15,7 @@ Each Sheep uses a bot key (created by the Keymaker and loaded by
 the Shepherd) to create an API instance in the constructor.
 Each Sheep then uses that API instance to perform actions.
 
-The BoringSheep base class in [boring mind machine](#)
+The BoringSheep base class in [boring mind machine](https://pages.charlesreid1.com/boring-mind-machine)
 defines a generic dispatcher method (which turns strings
 into function calls) to allow Shepherds to call particular
 actions for each Sheep.
