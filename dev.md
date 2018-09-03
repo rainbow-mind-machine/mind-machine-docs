@@ -25,8 +25,9 @@ Branches:
   and commits from these feature branches are merged back into the dev branch
   before they are ultimately added to a mind machine release.
 
-* `release/vP` - branch preparing a release of version P. Changes on release
-  branches are almost always synchronized with the development branch.
+* `prerelease/vP` - branch preparing a release of version P (updating docs, fixing tests, etc).
+
+* `release/vP` - branch with releases of version P.
 
 Workflow:
 
@@ -34,8 +35,10 @@ Workflow:
 * Create branch dev from master (or pull from master into dev if it already exists)
 * Create branch feature from dev (feature branch contains all work on a particular feature)
 * When ready, merge changes from feature into dev
-* Once dev branch is ready for a release, create a release candidate branch
-  `release/vP`
+* Once dev branch is ready for a release, create a pre-release branch `prerelease/vP`
+* Fill out pre-release checklist and test checklist (see below)
+* Cut new release on branch `release/vP`
+* Tag, push to Github, upload to PyPI, add to Dockerhub
 
 ## Release Process
 
