@@ -37,32 +37,125 @@ Workflow:
 * Once dev branch is ready for a release, create a release candidate branch
   `release/vP`
 
-## Testing
-
- * Using examples to test interactivity
- * Tests are mainly smoke tests
- * For complicated example, see bear/python-twitter on Github
-
 ## Release Process
 
-See branching workflow above. Checklist:
+The following checklists help in preparing for releases
+on PyPI or Dockerhub. Releases happen in a two-step process.
 
-* Test examples
-* Test create Docker container
-* Test documentation (but documentation can be/should be separate)
-* Update submodules
-* Mainly code
+## Pre-Release Checklist
 
-When ready:
+A new release happens when the code is stable. The first step
+in the release process is to create a pre-release branch, where
+the code base can be modified but the modifications will
+generally be specific to the version being released. (For example,
+updating the version number in `setup.py`).
 
-* Pypi upload
+Pre-release checklist:
 
-How to set up:
+* `setup.py` tasks:
+    * Does `setup.py build` work without errors?
+    * Does `setup.py install` work without errors?
+    * Has the description in `setup.py` been defined and updated?
+    * Have the requirements in `setup.py` been changed, and do they 
+      match the requirements in `requirements.txt`?
+    * Does this mind machine properly depend on the correct, new 
+      version of boring mind machine?
+    * Has the version number in `setup.py` been bumped?
+* Documentation tasks:
+    * Has the version number in the documentation (shield on 
+      `docs/index.md` page) been updated?
+    * Has Readme ben updated/quickstart instructions tested?
+* Git tasks:
+    * Is the submodule using HTTPS? (should not use SSH)
+    * Have submodules been updated? 
+    * `git submodule foreach git checkout master; git submodule foreach git pull origin master`
+    * Does this release include any large files? Are they necessary?
+      Can they be slimmed?
+* Docker tasks:
+    * Is the Dockerfile cloning the repo from the correct URL?
+    * Can a simple (non-mind-machine) python-alpine Dockerfile
+      install the requirements in `requirements.txt`?
 
-* Dockerhub (update with new versions)
+### Tests Checklist
 
-## Docker
+The second step is to go through the build, run, and test process.
 
- * Developer considerations for docker container
+Test checklist:
 
+* Nose tests
+    * Does `python setup.py test` pass?
+* Docker
+    * Can the Docker container be created using the shell script?
+    * Does `python setup.py test` pass inside the container?
+* Documentation
+    * Does `mkdocs build` work?
+    * Is updated documentation ready to deploy?
+
+### PyPI Account
+
+Ensure you have a PyPI account before you
+upload the new release to PyPI. To set up an account
+on PyPI:
+
+```
+python setup.py register
+```
+
+add the following to ~/.pypirc:
+
+**~/.pypirc**:
+
+```
+[distutils]
+index-servers =
+    pypi
+
+[pypi]
+username:charlesreid1
+password:YOURPASSWORDHERE
+```
+
+### PyPI Release
+
+PyPI = Python Package Index (where pip looks by default)
+
+When ready, the steps to release on PyPI are as follows:
+
+* Create a distribution locally
+* Upload the distribution to PyPI
+* Test the new release in a virtual environment
+
+Start by making a distribution package bundle:
+
+```
+$ python setup.py sdist
+```
+
+Upload it to pypi:
+
+```
+$ python setup.py sdist upload
+```
+
+Test it out with virutalenv:
+
+```
+  $ virtualenv vp && cd vp
+  $ source bin/activate
+  $ bin/pip install boringmindmachine
+```
+
+### Useful Links
+
+Guide to packaging a minimal Python application:
+
+* <http://python-packaging.readthedocs.io/en/latest/minimal.html>
+
+Uploading distributions to PyPI:
+
+* <https://packaging.python.org/guides/migrating-to-pypi-org/#uploading>
+
+Example scripts and guide:
+
+* <https://gist.github.com/gboeing/dcfaf5e13fad16fc500717a3a324ec17>
 
