@@ -42,7 +42,7 @@ Workflow:
 The following checklists help in preparing for releases
 on PyPI or Dockerhub. Releases happen in a two-step process.
 
-## Pre-Release Checklist
+### Pre-Release Checklist
 
 A new release happens when the code is stable. The first step
 in the release process is to create a pre-release branch, where
@@ -91,11 +91,54 @@ Test checklist:
     * Does `mkdocs build` work?
     * Is updated documentation ready to deploy?
 
-### PyPI Account
+### Create Release Branch
 
-Ensure you have a PyPI account before you
-upload the new release to PyPI. To set up an account
-on PyPI:
+Once the release checklist has been completed and everything is passing
+tests, the prerelease branch should be made into a release branch.
+
+This can be done by renaming the prerelease branch,
+
+```
+git branch -m prereleases/vXYZ releases/vXYZ
+```
+
+or by creating a new releases branch from the prerelases branch:
+
+```
+git branch releases/vXYZ
+git checkout releases/vXYZ
+```
+
+### Create Tags
+
+After the new releases branch is created, a tag should be created
+that points to the head commit of the release branch.
+
+Create a git tag:
+
+```
+git tag vXYZ.0
+git push origin vXYZ.0
+```
+
+This will add the new version tag to the "Releases" page of 
+the package's Github repository
+
+### Testing Release from Github
+
+Test downloading anad installing the new release from Github:
+
+```
+wget https://github.com/rainbow-mind-machine/boring-mind-machine/archive/vXYZ.zip
+unzip vXYZ.zip
+
+...see installation instructions...
+```
+
+### Set Up PyPI Account
+
+Ensure you have a PyPI account before you upload the new release to 
+PyPI and make it pip-installable. To set up an account on PyPI:
 
 ```
 python setup.py register
@@ -115,7 +158,7 @@ username:charlesreid1
 password:YOURPASSWORDHERE
 ```
 
-### PyPI Release
+### Upload Release to PyPI
 
 PyPI = Python Package Index (where pip looks by default)
 
@@ -145,7 +188,21 @@ Test it out with virutalenv:
   $ bin/pip install boringmindmachine
 ```
 
-### Useful Links
+### Set Up Dockerhub Account
+
+Before updating the latest container image available for the project on Dockerhub,
+you should create a Dockerhub account. There is no command line interface needed,
+as Dockerhub builds are configured via the web interface and webhooks.
+
+### Update Container Image on Dockerhub
+
+To update the latest container image available for the project on Dockerhub,
+add the new version's tag to the list of versions that Dockerhub will build.
+You can also configure webhooks so that new images are built whenever a
+particular branch is updated, but tagged versions won't change much so they
+only require building once.
+
+## Useful Links
 
 Guide to packaging a minimal Python application:
 

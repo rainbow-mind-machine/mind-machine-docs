@@ -39,11 +39,3 @@ We will point out the many examples of POOP-y behavior
 when we see them in a particular mind machine example.
 
 
-## Deep Thoughts
-
-Foucault
-
-Motivations
-
-Naming things
-
