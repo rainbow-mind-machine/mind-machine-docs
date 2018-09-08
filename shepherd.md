@@ -15,12 +15,13 @@
 
 ![the shepherd](img/shepherd.jpg)
 
-**The rainbow mind machine shepherd.**
+**The mind machine shepherd. [credit](credits.md)**
 
 ## what is the Shepherd?
 
-The Shepherd is a very simple object: it is basically a data container
-for storing Sheep.
+The Shepherd is a very simple object. 
+
+The Shepherd is a data container for storing Sheep.
 
 ## when does the Shepherd come in?
 
@@ -48,7 +49,41 @@ The Shepherd class determines how much coordination
 happens among different Sheep in the flock and between
 the flock and the outside world (the Internet).
 
-Some simple examples:
+Let's look at some simple examples of when you would 
+need to extend the Shepherd class, and what modifications
+would be required.
+
+### storing custom parameters
+
+First, let's mention a feature of the Shepherd
+that makes adding new parameters to extended versions
+of the Shepherd class really simple.
+
+The Shepherd constructor `__init__()` includes a 
+`**kwargs` argument at the end. This will create a 
+dictionary called `kwargs` with any key-value pairs 
+the user passed in. This is stored in `self.params`
+at the end of the constructor:
+
+```
+        self.params = kwargs
+```
+
+This means that if you create a new Shepherd class
+like `CarMechanicShepherd`, and you need to pass in 
+(say) a boolean input parameter like `uses_metric`, 
+you don't have to explicitly modify the constructor
+to take `uses_metric` as a parameter;
+the Shepherd class automatically adds 
+a key `uses_metric` with a value `True||False`
+to a dictionary `self.params` when you
+call the constructor like 
+
+```
+CarMechanicShepherd(uses_metric=False)
+```
+
+Okay, back to the regularly scheduled program...
 
 
 ### webhook bot flock
